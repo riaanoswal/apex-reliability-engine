@@ -1,10 +1,19 @@
 # APEX Industrial AI Reliability Engine
 
+[![Live demo](https://img.shields.io/badge/Live%20demo-open-00b894?style=flat-square)](https://apex-reliability-engine.onrender.com)
+[![Paper](https://img.shields.io/badge/Paper-PDF-c0392b?style=flat-square)](docs/APEX_IEEE_Paper.pdf)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-61DAFB?style=flat-square&logo=react&logoColor=black)
+![SciPy](https://img.shields.io/badge/DSP-NumPy%20%2F%20SciPy-8CAAE6?style=flat-square&logo=scipy&logoColor=white)
+![Docker](https://img.shields.io/badge/Deploy-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Dataset](https://img.shields.io/badge/Data-CWRU%20bearing%20benchmark-6c5ce7?style=flat-square)
+
 **Physics-grounded bearing fault diagnosis with retrieval-augmented maintenance reporting and fault-tolerant edge–cloud dispatch.**
 
 APEX turns a raw vibration signal into a scoped maintenance work order. It identifies *which* bearing component is failing using bearing kinematics rather than a trained classifier, grades severity against ISO 10816-3, retrieves the matching maintenance precedent, and writes a report in which every number is verified against the measurement. It keeps working when the cloud language model is unavailable.
 
-**Live demo:** [LIVE_DEMO_URL](LIVE_DEMO_URL)
+**Live demo:** [https://apex-reliability-engine.onrender.com](https://apex-reliability-engine.onrender.com)
 <sub>Hosted on a free tier: if the page takes 30–60 s to load, the server is waking up.</sub>
 
 ![APEX dashboard demo](docs/demo.gif)
@@ -18,7 +27,7 @@ APEX turns a raw vibration signal into a scoped maintenance work order. It ident
 Requirements: **Python 3.10+** and **Node.js 18+**.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/apex-reliability-engine.git
+git clone https://github.com/riaanoswal/apex-reliability-engine.git
 cd apex-reliability-engine
 python run.py
 ```
