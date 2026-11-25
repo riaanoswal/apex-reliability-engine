@@ -1,0 +1,9 @@
+# One-click deployment on Render (https://render.com) straight from this repository.
+services:
+  - type: web
+    name: apex-reliability-engine
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true

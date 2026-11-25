@@ -1,0 +1,49 @@
+APEX - HOW TO RUN
+=================
+
+ONE COMMAND
+  Open a terminal in this folder and type:
+
+      python run.py
+
+  That is the whole thing. It installs anything missing (first run only),
+  starts the backend and the dashboard, waits until both answer, and opens
+  your browser at the dashboard.
+
+  To stop it: press Ctrl+C in that same terminal. Both services go down
+  together and release their ports.
+
+  First run takes a few minutes because the dashboard packages download.
+  Every run after that takes about ten seconds.
+
+  If "python" is not recognised, use "py run.py" instead.
+  If you would rather not type anything, double-click START_DEMO.bat -
+  it runs the exact same command.
+
+OPTIONS
+  python run.py --no-browser        start the services, do not open a browser
+  python run.py --port 3100         put the dashboard on a different port
+  python run.py --api-port 8100     put the backend on a different port
+  python run.py --skip-install      do not check or install dependencies
+
+DURING THE DEMO
+  Leave the API key box empty to show offline / air-gapped mode.
+  Paste a Google AI Studio key into it to show cloud mode.
+  See DEMO_SCRIPT.txt for a five-minute run sheet.
+
+IF YOU PREFER TWO TERMINALS
+  Terminal 1:  python -m uvicorn backend.server:app --port 8000 --reload
+  Terminal 2:  cd frontend   then   npm run dev
+  Browser:     whatever URL Vite prints, normally http://localhost:3000
+
+CHECK IT WORKS
+  http://127.0.0.1:8000/api/telemetry should show real numbers, not an error.
+
+REQUIREMENTS
+  Python 3.10+ and Node.js 18+, both on PATH.
+  run.py tells you clearly if either is missing.
+
+IF A PORT IS BUSY
+  run.py handles this by itself: it moves to the next free port, says so,
+  and opens the browser at the port it actually used. Nothing to fix.
+  STOP_DEMO.bat is still there if you want to clear an older copy first.

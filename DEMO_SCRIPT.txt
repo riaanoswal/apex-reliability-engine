@@ -1,0 +1,89 @@
+APEX — 5 MINUTE DEMO RUN SHEET
+==============================
+
+BEFORE THEY WALK IN
+  1. start_backend.bat   -> wait for "Application startup complete"
+  2. start_frontend.bat  -> wait for "Local: http://localhost:3000/"
+  3. Open http://localhost:3000, press Ctrl+0 to reset browser zoom.
+  4. Leave the API key box EMPTY. You will fill it in during the demo.
+
+--------------------------------------------------------------------
+1. THE ASSET  (30 s)
+   Point at the header: ISA-95 path GULF_FPSO_01 / TRAIN_02 / CMP-204B.
+   "This is a compressor bearing. The data is the Case Western Reserve
+    University bearing dataset — real measured vibration, not simulated."
+
+2. THE EVIDENCE  (60 s)
+   Point at the lower-left chart.
+   "That is the envelope spectrum. The tallest peak sits exactly on the
+    marker at 105.9 Hz, which is the ball-pass frequency of the outer race
+    for this bearing at this speed. The defect frequency is not something
+    we chose — it falls out of the bearing geometry."
+   Point at the KPI strip: kurtosis ~20 means impulsive, not noise.
+
+   IF ASKED why the velocity is only 0.4 mm/s and Zone A:
+   "That is the honest answer and it is the point. Broadband velocity is
+    nearly blind to early bearing damage. The envelope spectrum sees it;
+    the ISO zone does not. We report both rather than conflating them."
+
+3. OFFLINE / AIR-GAPPED MODE  (90 s)
+   Click [RCA BPFO Trip].
+   "No internet is involved in that answer. The diagnosis, the risk score
+    and the actions are all computed in deterministic code."
+   Click [Verify LOTO & Parts] — different answer.
+   Click [Stage Work Order]   — different answer again.
+   Point at Output Checks 4/4 and open the kernel trace: ~15 ms total.
+
+4. CLOUD MODE  (60 s)
+   Paste your Gemini key into the box, top right. Click [RCA BPFO Trip].
+   The Engine label changes from deterministic-template to the Gemini model.
+   "Same diagnosis, same numbers — the model is explaining the decision,
+    not making it. If it invents a number, the checks reject it and we
+    fall back to the deterministic report."
+
+5. RESILIENCE  (45 s)
+   Clear the API key box. Click a chip again — answer is instant.
+   "That is the circuit breaker. Under a hanging provider the original
+    design took 54 seconds for every single request. This one spends its
+    budget twice, then stops calling out and answers in microseconds."
+
+6. THE OUTPUT  (30 s)
+   Click "Export ISO-14224 Work Order" — a JSON file downloads.
+   "SAP PM work order, staged for a planner. A human still approves it."
+
+--------------------------------------------------------------------
+LIKELY QUESTIONS
+
+Q: Is this real data?
+   Yes — CWRU drive-end bearing data, 12 kHz. File 235: outer-race fault,
+   0.021 inch, 1 hp load, 1771 rpm. 56 recordings, 555 one-second windows
+   were used for the evaluation in the paper.
+
+Q: How accurate is it?
+   68.8% across four classes on held-out loads; 87.6% with ball faults
+   excluded. Inner race 100%, outer race 86%, ball faults 0%. Ball faults
+   are a known hard case on this dataset — Smith and Randall reported the
+   same. We say so in the paper rather than hiding it.
+
+Q: Why not deep learning?
+   We compared. A random forest scores 96% on the usual split but drops to
+   46% on defect sizes it has not seen. Adding our kinematic features takes
+   it to 75%. The physics is what makes it generalise.
+
+Q: What about the NVIDIA acceleration?
+   Those are design projections and the dashboard says so. Nothing was run
+   on a GPU. Measured CPU cost for the whole diagnostic path is 5.9 ms per
+   one-second window, so no accelerator is needed at this scale.
+
+Q: Could this go on a real plant?
+   Not as it stands. Section VIII-G of the paper lists what is required:
+   sensor mounting, bearing geometry configuration, a commissioned
+   demodulation band per measurement point, historian and SAP integration,
+   and an IEC 62443 network boundary.
+
+--------------------------------------------------------------------
+IF SOMETHING BREAKS
+  Dashboard blank      -> check the backend window is still running
+  Port 8000 in use     -> close any older backend window first
+  Cloud mode not used  -> key is wrong or has no quota; the demo still
+                          works in offline mode, which is the stronger story

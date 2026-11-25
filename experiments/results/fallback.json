@@ -1,0 +1,156 @@
+[
+ {
+  "scenario": "Healthy (200 OK)",
+  "strategy": "naive",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 1.0,
+  "median_ms": 352.9510955000035,
+  "p95_ms": 353.6809968499824,
+  "max_ms": 358.15935799996623,
+  "first_ms": 358.15935799996623
+ },
+ {
+  "scenario": "Healthy (200 OK)",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 1.0,
+  "median_ms": 351.9060115000059,
+  "p95_ms": 352.9817009499965,
+  "max_ms": 353.49785599998995,
+  "first_ms": 353.49785599998995
+ },
+ {
+  "scenario": "HTTP 429 rate limit",
+  "strategy": "naive",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 4.875179999999091,
+  "p95_ms": 5.71457755001461,
+  "max_ms": 5.742774999987432,
+  "first_ms": 5.742774999987432
+ },
+ {
+  "scenario": "HTTP 429 rate limit",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.0010674999941784336,
+  "p95_ms": 0.6082458499861301,
+  "max_ms": 1.3528569999721185,
+  "first_ms": 1.3528569999721185
+ },
+ {
+  "scenario": "HTTP 404 model not found",
+  "strategy": "naive",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 4.502150499973823,
+  "p95_ms": 5.508530050030913,
+  "max_ms": 6.253914000012628,
+  "first_ms": 5.568313000026137
+ },
+ {
+  "scenario": "HTTP 404 model not found",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.0010395000060725579,
+  "p95_ms": 0.43280524997726166,
+  "max_ms": 1.1421920000316277,
+  "first_ms": 0.7852519999573815
+ },
+ {
+  "scenario": "HTTP 500 server error",
+  "strategy": "naive",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 4.562217000000146,
+  "p95_ms": 7.099144349984951,
+  "max_ms": 8.807942999965235,
+  "first_ms": 4.347742999982529
+ },
+ {
+  "scenario": "HTTP 500 server error",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.0006150000047000503,
+  "p95_ms": 0.37635160000490747,
+  "max_ms": 0.7676930000002358,
+  "first_ms": 0.6823840000151904
+ },
+ {
+  "scenario": "Malformed 200 response",
+  "strategy": "naive",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 1.6412155000011808,
+  "p95_ms": 2.734619650010472,
+  "max_ms": 3.0157300000155374,
+  "first_ms": 1.635671000030925
+ },
+ {
+  "scenario": "Malformed 200 response",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.0007330000073579868,
+  "p95_ms": 0.4847648000037427,
+  "max_ms": 0.8843510000247079,
+  "first_ms": 0.8843510000247079
+ },
+ {
+  "scenario": "Connection refused",
+  "strategy": "naive",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.2603830000111884,
+  "p95_ms": 0.3710479000261556,
+  "max_ms": 0.5717930000059823,
+  "first_ms": 0.5717930000059823
+ },
+ {
+  "scenario": "Connection refused",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.0009930000146596285,
+  "p95_ms": 0.06920155000784654,
+  "max_ms": 0.20274600001357612,
+  "first_ms": 0.20274600001357612
+ },
+ {
+  "scenario": "Upstream timeout (hang)",
+  "strategy": "naive",
+  "n": 3,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 54056.191392000015,
+  "p95_ms": 54056.85090570001,
+  "max_ms": 54056.92418500001,
+  "first_ms": 54056.92418500001
+ },
+ {
+  "scenario": "Upstream timeout (hang)",
+  "strategy": "breaker",
+  "n": 30,
+  "availability": 1.0,
+  "cloud_frac": 0.0,
+  "median_ms": 0.000841999963085982,
+  "p95_ms": 1101.5793025500102,
+  "max_ms": 15015.776632999972,
+  "first_ms": 15015.776632999972
+ }
+]
